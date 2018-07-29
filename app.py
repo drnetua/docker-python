@@ -14,11 +14,7 @@ class TestController(Resource):
 
 class QuitController(Resource):
     def get(self):
-        func = request.environ.get('werkzeug.server.shutdown')
-        if func is None:
-            raise RuntimeError('Not running with the Werkzeug Server')
-        func()
-        return "Shutting down..."
+        quit()
 
 api.add_resource(TestController, "/test/<string:param>")
 api.add_resource(QuitController, "/quit")
