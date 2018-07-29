@@ -12,11 +12,6 @@ class TestController(Resource):
         }
         return response, 200
 
-class QuitController(Resource):
-    def get(self):
-        quit()
-
 api.add_resource(TestController, "/test/<string:param>")
-api.add_resource(QuitController, "/quit")
 
 app.run(host='0.0.0.0', debug=True)
