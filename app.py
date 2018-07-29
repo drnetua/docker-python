@@ -14,7 +14,8 @@ class TestController(Resource):
 
 class QuitController(Resource):
     def get(self):
-        sys.exit(0)
+        shutdown_server()
+        return 'Server shutting down...'
 
 api.add_resource(TestController, "/test/<string:param>")
 api.add_resource(QuitController, "/quit")
